@@ -28,7 +28,7 @@ animations = [ {
 "speed": 6.0
 } ]
 
-[node name="StaticBody2D" type="StaticBody2D" index="0" groups=[
+[node name="StaticBody2D" type="StaticBody2D" groups=[
 "boing",
 ]]
 
