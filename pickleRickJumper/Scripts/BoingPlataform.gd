@@ -7,4 +7,8 @@ func exit_screen():
 	queue_free()
 
 func tirate_un_pedo():
-	print("pedo")
+	$AnimatedSprite.play("animacion")
+
+
+func sprite_base():
+	$AnimatedSprite.play("base")

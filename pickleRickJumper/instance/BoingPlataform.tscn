@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/BoingPlataform.gd" type="Script" id=1]
 [ext_resource path="res://images/culito.png" type="Texture" id=2]
+[ext_resource path="res://images/culito_final.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -13,7 +14,21 @@ extents = Vector2( 10, 10 )
 custom_solver_bias = 0.0
 extents = Vector2( 24.6391, 14.8117 )
 
-[node name="StaticBody2D" type="StaticBody2D" groups=[
+[sub_resource type="SpriteFrames" id=3]
+
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "base",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": false,
+"name": "animacion",
+"speed": 6.0
+} ]
+
+[node name="StaticBody2D" type="StaticBody2D" index="0" groups=[
 "boing",
 ]]
 
@@ -33,21 +48,14 @@ scale = Vector2( 4.26923, 1 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Sprite" type="Sprite" parent="." index="1"]
-
-position = Vector2( 13, -17 )
-scale = Vector2( 0.6, 0.6 )
-texture = ExtResource( 2 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="." index="2"]
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="." index="1"]
 
 position = Vector2( 2, 0 )
 scale = Vector2( 2.2, 1 )
 rect = Rect2( -10, -10, 20, 20 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Area2D" type="Area2D" parent="." index="3"]
+[node name="Area2D" type="Area2D" parent="." index="2"]
 
 position = Vector2( -1.07544, -20.7922 )
 input_pickable = true
@@ -64,6 +72,17 @@ _sections_unfolded = [ "Collision" ]
 shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="3"]
+
+position = Vector2( 12.9055, -17.2073 )
+scale = Vector2( 0.6, 0.6 )
+frames = SubResource( 3 )
+animation = "base"
+playing = true
+_sections_unfolded = [ "Transform" ]
+
 [connection signal="area_entered" from="Area2D" to="." method="flatulencia"]
+
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="sprite_base"]
 
 
