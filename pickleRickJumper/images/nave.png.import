@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cascada.jpeg-e93575980ebe4998c759e69ff8d5f014.stex"
+path="res://.import/nave.png-fe4816fae2c20212c9839f8b09e6088d.stex"
 
 [deps]
 
-source_file="res://images/cascada.jpeg"
-dest_files=[ "res://.import/cascada.jpeg-e93575980ebe4998c759e69ff8d5f014.stex" ]
+source_file="res://images/nave.png"
+dest_files=[ "res://.import/nave.png-fe4816fae2c20212c9839f8b09e6088d.stex" ]
 
 [params]
 

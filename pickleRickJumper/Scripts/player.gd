@@ -48,6 +48,7 @@ func collision(body):
 		get_tree().change_scene(world)
 	if body.is_in_group('boing') and velocity.y >0:
 		velocity.y = -jump_speed
+		body.tirate_un_pedo()
 	
 func exit_screen():
 	if get_global_position().y > camera.get_global_position().y + height/2:

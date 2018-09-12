@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/BoingPlataform.gd" type="Script" id=1]
 [ext_resource path="res://images/culito.png" type="Texture" id=2]
@@ -7,6 +7,11 @@
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 24.6391, 14.8117 )
 
 [node name="StaticBody2D" type="StaticBody2D" groups=[
 "boing",
@@ -41,5 +46,24 @@ position = Vector2( 2, 0 )
 scale = Vector2( 2.2, 1 )
 rect = Rect2( -10, -10, 20, 20 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="Area2D" type="Area2D" parent="." index="3"]
+
+position = Vector2( -1.07544, -20.7922 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[connection signal="area_entered" from="Area2D" to="." method="flatulencia"]
 
 

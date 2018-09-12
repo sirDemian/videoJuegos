@@ -6,21 +6,22 @@
 [ext_resource path="res://Scripts/Camera.gd" type="Script" id=4]
 [ext_resource path="res://instance/BoingPlataform.tscn" type="PackedScene" id=5]
 
-[node name="World" type="Node2D" index="0"]
+[node name="World" type="Node2D"]
 
 script = ExtResource( 1 )
-cant_plataforms = 30.0
-high_pltaforms = 220.0
+cant_boing_plataf = 150.0
+high_boing_plataf = 90.0
+cant_portal = 400.0
+high_portal = 170.0
 large_of_game = 100
 
 [node name="PickleRick" parent="." index="0" instance=ExtResource( 2 )]
 
-_sections_unfolded = [ "Material", "Pause", "Pickable", "Visibility", "collision" ]
+_sections_unfolded = [ "Collision", "Material", "Pause", "Pickable", "Visibility", "collision" ]
 camera_path = NodePath("../Camera2D")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." index="1"]
 
-editor/display_folded = true
 layer = -1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -60,7 +61,6 @@ stretch_mode = 2
 
 [node name="Camera2D" type="Camera2D" parent="." index="2"]
 
-editor/display_folded = true
 anchor_mode = 1
 rotating = false
 current = true
@@ -140,9 +140,11 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_colors/font_color = Color( 1, 0.0666667, 0, 1 )
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+_sections_unfolded = [ "Material", "custom_colors", "custom_styles" ]
 
 [node name="StaticBody2D" parent="." index="3" instance=ExtResource( 5 )]
 

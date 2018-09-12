@@ -4,7 +4,7 @@ export(NodePath) var pickleRick_path
 
 func _ready():
 	pickleRick = get_node(pickleRick_path)
-	pass
+	
 
 func _process(delta):
 	get_node("Score/Label").set_text(String(get_score()))
@@ -13,3 +13,4 @@ func _process(delta):
 
 func get_score():
 	return int(get_global_position().y * -1)
+	
