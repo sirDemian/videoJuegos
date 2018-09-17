@@ -57,4 +57,5 @@ func exit_screen():
 		set_global_position(Vector2(-width/2-32,get_global_position().y))
 	if get_global_position().x < camera.get_global_position().x and velocity.x < 0:
 		set_global_position(Vector2(width/2+32,get_global_position().y))
-
+#	if get_global_position().x > 10000:
+#		get_tree().change_scene()

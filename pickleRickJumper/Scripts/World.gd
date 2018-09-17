@@ -19,7 +19,7 @@ func _ready():
 		new_boing.set_global_position(Vector2( rand_range(-half_width, half_width), y))
 		y -= rand_range(cant_boing_plataf, high_boing_plataf)
 		add_child(new_boing)
-		
+
 	while (y < -30 * large_of_game) && (y > -60 * large_of_game):
 		render_platforms(half_width, y, portal_y)
 		y -= rand_range(cant_boing_plataf * 1.75 , high_boing_plataf * 0.9)
@@ -30,6 +30,7 @@ func _ready():
 		y -= rand_range(cant_boing_plataf * 2.5 , high_boing_plataf * 0.2)
 		portal_y -= rand_range(cant_portal / 5 , high_portal )
 
+
 func render_platforms(half_width, y, portal_y):
 		var new_boing  = boing.instance()
 		var new_portal = portal.instance()
@@ -38,21 +39,3 @@ func render_platforms(half_width, y, portal_y):
 		add_child(new_boing)
 		add_child(new_portal)
 
-#func save(highscore):
-#    var highscore_file = File.new()
-#    highscore_file.open("res://save_game.dat", highscore_file.WRITE)
-#    highscore_file.store_string(highscore)
-#    highscore_file.close()
-#
-#func load():
-#    var highscore_file = File.new()
-#    highscore_file.open("res://save_game.dat", highscore_file.READ)
-#    var highscore =  highscore_file.get_as_text()
-#    highscore_file.close()
-#    return highscore
-
-#func _process(delta):
-	
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
