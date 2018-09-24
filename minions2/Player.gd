@@ -1,13 +1,13 @@
 extends KinematicBody2D
 
 export (float) var GRAVITY = 20
-export (float) var MAX_SPEED = 200
-export (float) var JUMP_HEIGTH = 2.5
+export (float) var MAX_SPEED = 300
+export (float) var JUMP_HEIGTH = 2
 export (float) var ACCELERATION = 50
 
 const UP = Vector2(0,-1)
 var motion = Vector2()
-var real_jump = -300 * JUMP_HEIGTH
+var real_jump = -425 * JUMP_HEIGTH
 
 func _physics_process(delta):
 	var hero = get_node("PlayerAnimatedSprite")
@@ -27,15 +27,16 @@ func _physics_process(delta):
 		if Input.is_action_pressed("ui_up"):
 			motion.y = real_jump	
 		if friction == true:
-			motion.x = lerp(motion.x , 0 , 0.2)
+			motion.x = lerp(motion.x , 0 , 0.3)
 			#inercia (desde, hasta, porcentaje de rozamiento)
 	else:
+		if friction == true:
+			motion.x = lerp(motion.x , 0 , 0.1)
 		if motion.y < 0:
 			hero.play("Jump")
 		else:
 			hero.play("Fall")
-		if friction == true:
-			motion.x = lerp(motion.x , 0 , 0.05)
+		
 	motion = move_and_slide(motion, UP)
 
 func run_rigth( a_sprite):
